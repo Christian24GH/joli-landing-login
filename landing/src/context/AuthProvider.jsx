@@ -102,7 +102,7 @@ export const AuthProvider = ({ children }) => {
       case 'Facility Admin':
       case 'Legal Admin':
       case 'Front Desk Admin':
-        window.location.href = import.meta.env.VITE_FACILITY_FRONTEND
+        window.location.href = import.meta.env.VITE_ADM_FRONTEND
         break
       // Super Admin
       case 'Super Admin':
