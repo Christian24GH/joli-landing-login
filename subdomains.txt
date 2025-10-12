@@ -1,0 +1,6 @@
+landing: React Vite 
+    front: landing.jolitravel.jampzdev.com
+
+auth: Laravel
+    SUBDOMAIN: auth.jolitravel.jampzdev.com 
+    DB: u514031374_jolitravel
