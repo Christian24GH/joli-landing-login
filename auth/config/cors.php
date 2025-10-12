@@ -35,7 +35,7 @@ return [
         /**LOCAL DEV */
         "http://landing.jolitravel.local:3000",
         "http://front.jobfithr1.jolitravel.local:3001",
-        "http://front.tchr2.jolitravel.local:3003",
+        "http://front.tchr2.jolitravel.local:3002",
         "http://front.hr3workforceops.jolitravel.local:3003",
         "http://front.hr4armai.jolitravel.local:3004",
         "http://front.bookingTOCBS.jolitravel.local:3005",
