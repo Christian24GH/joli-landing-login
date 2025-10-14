@@ -13,7 +13,7 @@ Route::get('/test', function(){
 });
 
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login',    [AuthController::class, 'login'])->middleware("throttle:login");
+Route::post('/login',    [AuthController::class, 'login'])->middleware("throttle:prevent-spam");
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', fn(Request $request) => response()->json($request->user()));

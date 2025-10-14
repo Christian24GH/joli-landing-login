@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Dotenv::createImmutable(base_path())->load(); 
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
 
-        RateLimiter::for('login', function ($request) {
+        RateLimiter::for('prevent-spam', function ($request) {
             return Limit::perMinute(5)
                     ->by($request->ip());
         });
