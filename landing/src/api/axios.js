@@ -9,18 +9,6 @@ export const AUTH_API = axios.create({
   withCredentials: true,
 })
 
-export const FLEET_API = axios.create({
-  baseURL: import.meta.env.VITE_FLEET_BACKEND,
-  headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Type': 'application/json',
-  },
-  withCredentials: true,
-});
-
-
-
-
 /**
  * API HELPERS
  */
