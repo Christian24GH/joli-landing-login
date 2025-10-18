@@ -8,6 +8,7 @@ import { ThemeProvider } from "./context/theme-provider"
 import { GuestRoute } from './layout/GuestRoute';
 import LandingPage from './main/landing'
 import LoginPage from './main/login';
+import Supplier from './main/Supplier';
 import NotFound from './main/not-found';
 
 createRoot(document.getElementById('root')).render(
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<GuestRoute/>}>
             <Route index element={<LoginPage/>}/>
           </Route>
+          <Route path="/supplier" element={<Supplier/>}/>
 
           {/**NOT FOUND PAGE AS LAST CHILD OF ROUTES */}
           <Route path='*' element={<NotFound/>}/>

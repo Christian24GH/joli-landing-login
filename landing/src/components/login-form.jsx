@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { AlertDescription } from '@/components/ui/alert'
-import { EyeIcon, EyeClosedIcon } from "lucide-react"
+
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useForm } from 'react-hook-form'
 import AuthContext from "../context/AuthProvider"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 
 
 export function LoginForm({
@@ -23,7 +23,6 @@ export function LoginForm({
 
   const { register, handleSubmit, formState: {errors, isSubmitting} }  = useForm()
   const {login} = useContext(AuthContext)
-  const [showPassword, setShowPassword] = useState(false);
   
   const formSubmit = async (data) => {
     await login(data)
@@ -63,28 +62,11 @@ export function LoginForm({
                     </a>
                   */}
                 </div>
-                <div className="relative">
-                  <Input
-                    {...register('password', { required: 'Password is required' })}
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    disabled={isSubmitting}
-                    className="pr-10" // add padding to make space for the icon
+                <Input {...register('password', {
+                    required: 'Password is required'
+                  })} id="password" type="password"
+                  disabled={isSubmitting}
                   />
-
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                    tabIndex={-1} // prevents it from triggering form submit when pressing Enter
-                  >
-                    {showPassword ? (
-                      <EyeClosedIcon className="h-5 w-5" />
-                    ) : (
-                      <EyeIcon className="h-5 w-5" />
-                    )}
-                  </button>
-                </div>
                 {errors.password && (
                   <AlertDescription className="text-red-500">{errors.password.message}</AlertDescription>
                 )}

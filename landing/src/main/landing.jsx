@@ -20,6 +20,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="flex items-center gap-20">
+                    <Link to="/supplier" className="text-(--primary) hover:underline">Become Our Supplier</Link>
                     <a href="#destinations">Destination</a>
                     <a href="#">Why Us</a>
                     <a href="#">Packages</a>

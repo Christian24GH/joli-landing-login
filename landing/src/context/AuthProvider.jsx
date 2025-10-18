@@ -46,8 +46,6 @@ export const AuthProvider = ({ children }) => {
           toast.error('Invalid credentials', { position: "top-center" })
         } else if (error.response.status === 500) {
           toast.error('Server error. Please try again later.', { position: "top-center" })
-        } else if (error.response.status === 429) {
-          toast.error('Too many login attempts, try again in a minute', { position: "top-center" })
         } else {
           toast.error(`Login failed (${error.response.status})`, { position: "top-center" })
         }
@@ -100,15 +98,18 @@ export const AuthProvider = ({ children }) => {
       case 'Driver':
         window.location.href = import.meta.env.VITE_FLEET_FRONTEND
         break
-      // Facility Admin, Legal Admin, Front Desk Admin, Super Admin
+      // Facility Admin, Legal Admin, Front Desk Admin
       case 'Facility Admin':
       case 'Legal Admin':
       case 'Front Desk Admin':
+        window.location.href = import.meta.env.VITE_FACILITY_FRONTEND
+        break
+      // Super Admin
       case 'Super Admin':
-        window.location.href = import.meta.env.VITE_ADM_FRONTEND
+        navigate('/login')
         break
       default:
-        toast.error('Invalid role, please contact the customer support',{position:"top-center"})
+        navigate('/login')
     }
   }
 
