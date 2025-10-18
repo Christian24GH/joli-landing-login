@@ -13,10 +13,20 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->index();
-            $table->string('otp_code');
-            $table->timestamp('expires_at');
+            $table->unsignedBigInteger('user_id')->nullable()->index();
+            $table->string('email')->nullable()->index();
+            $table->string('otp_hash')->nullable()->index(); // store hashed OTP
+            $table->string('purpose')->nullable();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->boolean('is_used')->default(false);
+            $table->unsignedBigInteger('used_by')->nullable();
+            $table->timestamp('used_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('used_by')->references('id')->on('users')->onDelete('set null');
         });
     }
 

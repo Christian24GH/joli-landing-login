@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
             'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin'
         */
         User::factory()->create([
-            'name'      => 'Maria Santos',
+            'name'      => 'Ceniza Rei',
             'uuid'      => Str::uuid(),
-            'email'     => 'hr1admin@gmail.com',
+            'email'     => 'ceniza082804@gmail.com',
             'password'  => '123456',
             'role'      => 'HR1 Admin',
         ]);
@@ -66,9 +66,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name'      => 'Carlos Mendoza',
+            'name'      => 'Ferdinand Tanilon',
             'uuid'      => Str::uuid(),
-            'email'     => 'hr4admin@gmail.com',
+            'email'     => 'ferdinandtanilon01@gmail.com',
             'password'  => '123456',
             'role'      => 'HR4 Admin',
         ]);
@@ -122,9 +122,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name'      => 'Super Admin',
+            'name'      => 'Patrick',
             'uuid'      => Str::uuid(),
-            'email'     => 'superadmin@gmail.com',
+            'email'     => 'patrickpernito1@gmail.com',
             'password'  => '123456',
             'role'      => 'Super Admin',
         ]);
@@ -133,6 +133,46 @@ class DatabaseSeeder extends Seeder
             'name'      => 'Fleet Manager',
             'uuid'      => Str::uuid(),
             'email'     => 'fleetManager@gmail.com',
+            'password'  => '123456',
+            'role'      => 'Fleet Manager',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Christian',
+            'uuid'      => Str::uuid(),
+            'email'     => 'loquezchristian@gmail.com',
+            'password'  => '123456',
+            'role'      => 'Fleet Manager',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Jamiee',
+            'uuid'      => Str::uuid(),
+            'email'     => 'jamieeroque20@gmail.com',
+            'password'  => '123456',
+            'role'      => 'Fleet Manager',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Christian',
+            'uuid'      => Str::uuid(),
+            'email'     => 'clarkkenthagulo24@gmail.com',
+            'password'  => '123456',
+            'role'      => 'Fleet Manager',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Adriane',
+            'uuid'      => Str::uuid(),
+            'email'     => 'adrianea.paracale@gmail.com',
+            'password'  => '123456',
+            'role'      => 'Fleet Manager',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Shaine',
+            'uuid'      => Str::uuid(),
+            'email'     => 'pausanoss@gmail.com',
             'password'  => '123456',
             'role'      => 'Fleet Manager',
         ]);
@@ -148,10 +188,18 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name'      => 'Rence Calo', 
             'uuid'      => Str::uuid(),
-            'email'     => 'rence@gmail.com',
+            'email'     => 'ecnerualolac@gmail.com',
             'password'  => '123456',
             'role'      => 'LogisticsI Admin',
         ]);
 
+        User::factory()->create([
+            'name'      => 'Ramos Mark', 
+            'uuid'      => Str::uuid(),
+            'email'     => 'ramosmark1998@gmail.com',
+            'password'  => '123456',
+            'role'      => 'LogisticsI Admin',
+        ]);
+        
     }
 }

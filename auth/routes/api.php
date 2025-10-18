@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OtpController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,12 +15,14 @@ Route::get('/test', function(){
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login'])->middleware("throttle:prevent-spam");
+Route::post('/otp/verify', [AuthController::class, 'verifyOtp']);
+Route::post('/otp/resend', [AuthController::class, 'resendOtp']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', fn(Request $request) => response()->json($request->user()));
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
 
 //Mobile Authentication
 Route::post('/sanctum/token', function (Request $request) {

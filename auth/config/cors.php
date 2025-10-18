@@ -21,16 +21,20 @@ return [
     'allowed_origins' => array_merge(explode(',', env('ALLOWED_ORIGINS')), [
         /**PROD */
         "https://landing.jolitravel.jampzdev.com",
-        "https://front.jobfithr1.jolitravel.jampzdev.com",
-        "https://front.tchr2.jolitravel.jampzdev.com",
-        "https://front.hr3workforceops.jolitravel.jampzdev.com",
-        "https://front.hr4armai.jolitravel.jampzdev.com",
-        "https://front.bookingTOCBS.jolitravel.jampzdev.com",
-        "https://front.Travagent.jolitravel.jampzdev.com",
-        "https://front.qrlog1.jolitravel.jampzdev.com",
-        "https://front.fleet.jolitravel.jampzdev.com",
-        "https://front.superadministrative.jolitravel.jampzdev.com",
-        "https://front.TechFince.jolitravel.jampzdev.com",
+        "https://front.jobfithr1.jampzdev.com",
+        "https://front.tchr2.jampzdev.com",
+        "https://front.hr3workforceops.jampzdev.com",
+        "https://hr4armai.jampzdev.com",
+        "https://front.hr4armai.jampzdev.com",
+        "https://front.bookingTOCBS.jampzdev.com",
+        "https://front.Travagent.jampzdev.com",
+        "https://front.qrlog1.jampzdev.com",
+        "https://front.fmslog2.jampzdev.com",
+        "https://superadministrative.jampzdev.dpdns.org",
+        "https://front.TechFince.jampzdev.com",
+
+        /**BACKEND*/
+        "https://back.fmslog2.jampzdev.com",
 
         /**LOCAL DEV */
         "http://landing.jolitravel.local:3000",
