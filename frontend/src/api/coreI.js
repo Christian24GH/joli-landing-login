@@ -4,12 +4,12 @@ const BASE = import.meta.env.VITE_TOURS_API_URL || 'http://127.0.0.1:8000/api'
 
 // Tours API
 export async function getTours(params = {}) {
-    const res = await api.get(`${BASE}/tours`, { params })
+    const res = await api.get(`${BASE}/api/tours`, { params })
     return res.data
 }
 
 export async function getTour(id) {
-    const res = await api.get(`${BASE}/tours/${id}`)
+    const res = await api.get(`${BASE}/api/tours/${id}`)
     return res.data
 }
 
@@ -18,22 +18,22 @@ export async function getItineraryByTour(tourId, params = {}) {
     if (!tourId) return []
     // Try nested resource first, then fallback to flat resource with filter
     try {
-        const res = await api.get(`${BASE}/tours/${tourId}/itineraries`, { params })
+        const res = await api.get(`${BASE}/api/tours/${tourId}/itineraries`, { params })
         return normalizeResponse(res)
     } catch (_) {
-        const res = await api.get(`${BASE}/itineraries`, { params: { tour_id: tourId, ...params } })
+        const res = await api.get(`${BASE}/api/itineraries`, { params: { tour_id: tourId, ...params } })
         return normalizeResponse(res)
     }
 }
 
 export async function getItineraries(params = {}) {
-    const res = await api.get(`${BASE}/itineraries`, { params })
+    const res = await api.get(`${BASE}/api/itineraries`, { params })
     return res.data
 }
 
 export async function getReviews(params = {}) {
   const queryString = new URLSearchParams(params).toString()
-  const url = `http://127.0.0.1:8000/api/reviews${queryString ? '?' + queryString : ''}`
+  const url = `${BASE}/api/reviews${queryString ? '?' + queryString : ''}`
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error('Failed to fetch reviews')
