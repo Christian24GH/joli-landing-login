@@ -23,17 +23,9 @@ createRoot(document.getElementById('root')).render(
           
           {/** Main Routes */}
           <Route path="/" element={<LandingPage/>}/>
-<<<<<<< HEAD:frontend/src/main.jsx
           <Route path="/booking" element={<BookingPage/>}/>
           <Route path="/login" index element={<LoginPage/>}/>
           <Route path="/supplier" element={<Supplier/>}/>
-=======
-          <Route path="/login" element={<GuestRoute/>}>
-            <Route index element={<LoginPage/>}/>
-          </Route>
-          <Route path="/supplier" element={<Supplier/>}/>
-
->>>>>>> 8164badce463fd0b06561ba914f63c014f12f448:landing/src/main.jsx
           {/**NOT FOUND PAGE AS LAST CHILD OF ROUTES */}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

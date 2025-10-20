@@ -2,7 +2,6 @@ import { LoginForm } from "../components/login-form"
 import { OTPForm } from "../components/otp-form"
 import { Link } from "react-router";
 import { motion } from "motion/react";
-<<<<<<< HEAD:frontend/src/layout/AuthLayout.jsx
 import { ModeToggle } from "../components/theme-toggler"
 import { useContext, useEffect } from "react"
 import AuthContext from "../context/AuthProvider"
@@ -37,16 +36,6 @@ export default function AuthLayout(){
             >
                 <ModeToggle />
             </motion.div>
-=======
-import bg from '@/assets/ironpattern.png'
-import logo from '@/assets/finallogo.avif'
-export default function LoginPage(){
-    return( 
-        <>
-        <title>JOLI - Login</title>
-        <div className="flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10 relative">
-            <Toaster richColors />
->>>>>>> 8164badce463fd0b06561ba914f63c014f12f448:landing/src/main/login.jsx
 
             <motion.div
                 initial={{ opacity: 0 }}
@@ -58,17 +47,7 @@ export default function LoginPage(){
                 </Link>
             </motion.div>
 
-<<<<<<< HEAD:frontend/src/layout/AuthLayout.jsx
             <Outlet />
-=======
-            <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mt-20 md:mt-0"
-            >
-                <LoginForm />
-            </motion.div>
->>>>>>> 8164badce463fd0b06561ba914f63c014f12f448:landing/src/main/login.jsx
 
             <div
                 className="absolute inset-0 -z-50 bg-repeat"
@@ -76,10 +55,6 @@ export default function LoginPage(){
             />
 
         </div>
-<<<<<<< HEAD:frontend/src/layout/AuthLayout.jsx
     </>
-=======
-        </>
->>>>>>> 8164badce463fd0b06561ba914f63c014f12f448:landing/src/main/login.jsx
     )
 }
