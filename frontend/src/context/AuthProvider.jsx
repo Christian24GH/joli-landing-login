@@ -70,7 +70,6 @@ export const AuthProvider = ({ children }) => {
 
       if (res.data.otp_id && res.data.email) {
         setPendingOtp({ email: res.data.email, otp_id: res.data.otp_id });
-        navigate("/otp");
       } else {
         // fallback (edge case)
         const user = await getUser();
@@ -182,6 +181,9 @@ export const AuthProvider = ({ children }) => {
       case "Fleet Manager":
       case "Driver":
         window.location.href = import.meta.env.VITE_FLEET_FRONTEND;
+        break;
+      case "CT1 Admin":
+        window.location.href = import.meta.env.VITE_CT1_FRONTEND;
         break;
       case "Facility Admin":
       case "Legal Admin":

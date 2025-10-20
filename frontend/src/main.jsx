@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { Toaster } from "@/components/ui/sonner"
 import { AuthProvider } from './context/AuthProvider.jsx';
 import { ThemeProvider } from "./context/theme-provider"
-import AuthLayout from './layout/AuthLayout.jsx'
 import LandingPage from './main/landing'
+import BookingPage from './main/booking.jsx';
 import LoginPage from './main/login';
-import OtpPage from './main/otp.jsx';
 import NotFound from './main/not-found';
+import Supplier from './main/Supplier';
 
 createRoot(document.getElementById('root')).render(
   // basename = baseUrl jsut like base value inside vite.config.js
@@ -22,15 +22,9 @@ createRoot(document.getElementById('root')).render(
           
           {/** Main Routes */}
           <Route path="/" element={<LandingPage/>}/>
-          <Route path="/login" element={<AuthLayout/>}>
-            <Route index element={<LoginPage/>}/>
-          </Route>
-
-          <Route path="/otp" element={<AuthLayout/>}>
-            <Route index element={<OtpPage/>}/>
-          </Route>
-
-
+          <Route path="/booking" element={<BookingPage/>}/>
+          <Route path="/login" index element={<LoginPage/>}/>
+          <Route path="/supplier" element={<Supplier/>}/>
           {/**NOT FOUND PAGE AS LAST CHILD OF ROUTES */}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

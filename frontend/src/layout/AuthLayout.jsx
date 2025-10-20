@@ -1,4 +1,5 @@
 import { LoginForm } from "../components/login-form"
+import { OTPForm } from "../components/otp-form"
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import { ModeToggle } from "../components/theme-toggler"
@@ -24,7 +25,7 @@ export default function AuthLayout(){
     
     
     return( 
-       <>
+    <>
         <title>JOLI - Login</title>
         <div className="flex min-h-svh w-full flex-col items-center p-6 md:p-10 relative">
         

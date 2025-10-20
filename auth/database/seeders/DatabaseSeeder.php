@@ -201,5 +201,20 @@ class DatabaseSeeder extends Seeder
             'role'      => 'LogisticsI Admin',
         ]);
         
+        User::factory()->create([
+            'name'      => 'Ramos Mark', 
+            'uuid'      => Str::uuid(),
+            'email'     => 'nmerbin08@gmail.com',
+            'password'  => '123456',
+            'role'      => 'HR2 Admin',
+        ]);
+
+        User::factory()->create([
+            'name'      => 'Ramos Mark', 
+            'uuid'      => Str::uuid(),
+            'email'     => 'sanroque.andrei.cambi@gmail.com',
+            'password'  => '123456',
+            'role'      => 'HR3 Admin',
+        ]);
     }
 }
