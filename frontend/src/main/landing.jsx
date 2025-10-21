@@ -58,9 +58,9 @@ export default function LandingPage() {
 
                     <div className="p-60 px-10 flex justify-center">
                         <FadeIn className="p-8 rounded-lg bg-white lg:w-[700px] flex flex-col">
-                            <h1 className="text-[30px] text-center font-bold">Design your next Escape with</h1>
-                            <p className="text-(--primary) lg:text-[50px] text-center font-bold leading-tight text-[40px]">JOLI Travel And Tours</p>
-                            <p className="my-4 text-center">Curated itineraries, reliable transfer, and local-guided experiences across the philippines and beyond.</p>
+                            <h1 className="text-2xl text-center lato-bold-italic">Design your next Escape with</h1>
+                            <p className="text-(--primary) text-8xl birthstone-regular text-center font-bold leading-tight">JOLI Travel And Tours</p>
+                            <p className="my-4 text-center lato-regular-italic">Curated itineraries, reliable transfer, and local-guided experiences across the philippines and beyond.</p>
 
                             <Link to="/booking" className="self-center"><Button className="cursor-pointer">Find Packages</Button></Link>
                         </FadeIn>

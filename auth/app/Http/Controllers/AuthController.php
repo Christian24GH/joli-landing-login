@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\EmailVerified;
+use App\Mail\EmailVerification as MailEmailVerification;
+use App\Models\EmailVerification;
 use App\Models\Otp;
 use App\Models\User;
 use App\Services\OTPService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
@@ -20,8 +25,9 @@ class AuthController extends Controller
     }
 
  
-    public function register(Request $request)
+    public function register_employee_account(Request $request)
     {
+        //to be validated: verify the api callers role. Only allow creation from Admins
         $validated = (object) $request->validate([
             'name'      => ['required', 'min:6'],
             'email'     => ['required', 'email', 'unique:users,email'],
@@ -36,7 +42,8 @@ class AuthController extends Controller
                     'Payroll Specialist',
                     'LogisticsI Admin', 'Manager', 'Staff',
                     'Fleet Manager', 'Driver',
-                    'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin'
+                    'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin',
+                    'Booking Admin', 'Booking Staff', 'CT1 Admin',
                 ]),
             ],
         ]);
@@ -51,6 +58,91 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Registered successfully'], 200);
     }
+
+
+    public function register_customer_account(Request $request)
+    {
+        $validated = (object) $request->validate([
+            'name'      => ['required', 'min:6'],
+            'email'     => ['required', 'email', 'unique:users,email'],
+            'password'  => ['required', 'min:6'],
+            'role'      => [
+                'required',
+                Rule::in([
+                    'Customer',
+                ]),
+            ],
+        ]);
+
+        //verify first if uuid already exist in users. if yes, regenerate. If no, use it.
+        do {
+            $uuid = Str::uuid();
+        } while (User::where('uuid', $uuid)->exists());
+
+        User::create([
+            'uuid'     => $uuid,
+            'name'     => $validated->name,
+            'email'    => $validated->email,
+            'password' => $validated->password,
+            'role'     => $validated->role,
+        ]);
+
+        $code = Str::upper(Str::random(6));
+
+        EmailVerification::create([
+            'user_uuid'  => $uuid,
+            'code'       => $code,
+            'is_used'    => false,
+            'issued_for' => 'email_verification',
+            'expires_at' => Carbon::now()->addMinutes(30), // expires in 30 mins
+        ]);
+
+        $verificationUrl = url('/verify-email?email=' . urlencode($validated->email));
+
+        Mail::to($validated->email)->send(new MailEmailVerification($verificationUrl, $code));
+
+        return response()->json(['message' => 'Registered successfully'], 200);
+    }
+
+    public function verify_email(Request $request)
+    {
+        $validated = (object) $request->validate([
+            'email' => ['required', 'email'],
+            'code'  => ['required', 'string', 'size:6'],
+        ]);
+
+        $user = User::where('email', $validated->email)->first();
+        if (!$user) {
+            return response()->json(['message' => 'User not found.'], 404);
+        }
+
+        $verification = EmailVerification::where('user_uuid', $user->uuid)
+            ->where('code', $validated->code)
+            ->where('is_used', false)
+            ->where('issued_for', 'email_verification')
+            ->where('expires_at', '>', Carbon::now())
+            ->latest()
+            ->first();
+
+        if (!$verification) {
+            return response()->json(['message' => 'Invalid or expired verification code.'], 400);
+        }
+
+        $verification->update([
+            'is_used' => true,
+            'used_by' => $user->uuid,
+            'used_at' => Carbon::now(),
+        ]);
+
+        $user->update([
+            'email_verified_at' => Carbon::now(),
+        ]);
+
+        broadcast(new EmailVerified($verification->user_uuid))->toOthers();
+
+        return response()->json(['message' => 'Email verified successfully.'], 200);
+    }
+
 
 
     public function login(Request $request)
@@ -104,7 +196,7 @@ class AuthController extends Controller
         return $response;
     }
 
-
+    
     public function verifyOtp(Request $request)
     {
         $validated = $request->validate([
@@ -217,8 +309,8 @@ class AuthController extends Controller
     private function otpCookies($email, $otpId)
     {
         return [
-            cookie('otp_email', $email, 5, '/', env("SESSION_DOMAIN"), app()->environment('production'), false, false, 'Lax'),
-            cookie('otp_id', $otpId, 5, '/', env("SESSION_DOMAIN"), app()->environment('production'), false, false, 'Lax'),
+            cookie('otp_email', $email, 1, '/', env("SESSION_DOMAIN"), app()->environment('production'), false, false, 'Lax'),
+            cookie('otp_id', $otpId, 1, '/', env("SESSION_DOMAIN"), app()->environment('production'), false, false, 'Lax'),
         ];
     }
 

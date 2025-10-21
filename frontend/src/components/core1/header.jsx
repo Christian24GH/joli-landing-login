@@ -24,27 +24,27 @@ export default function Header() {
     ];
 
     return(
-        <FadeIn className="flex items-center m-4 justify-between lg:relative">
-            <div className="flex items-center bg-white pr-8 rounded-lg">
+        <FadeIn className="flex items-center bg-white/90 justify-between fixed top-0 w-full z-50">
+            <div className="flex items-center pr-8 rounded-lg">
                 <Link to="/"><img src={logo} className="w-30" alt="Logo"/></Link>
-                <h1 className="text-(--primary) text-[20px] font-bold">Travel & Tours</h1>
+                <h1 className="text-(--primary) text-5xl birthstone-regular">Joli Travel & Tours</h1>
             </div>
 
-            <div className="xl:block hidden bg-white px-8 py-4 rounded-lg">
+            <div className="xl:block hidden px-8 py-4 rounded-lg">
                 <div className="flex gap-15 items-center">
                     {mainNavItems.map((item) => (
-                        <Link key={item.label} to={item.href}>{item.label}</Link>
+                        <Link className='lato-bold-italic' key={item.label} to={item.href}>{item.label}</Link>
                     ))}
 
                     <div className="flex gap-2">
                         <Button variant="outline" className="cursor-pointer">Contact</Button>
-                        <Link to="/supplier" className="text-(--primary) hover:underline">Become Our Supplier</Link>
-                        <Link to="/Login"><Button className="cursor-pointer lg:w-full">Login</Button></Link>
+                        <Link to="/supplier"><Button variant="outline" className="cursor-pointer lg:w-full">Become our Partner</Button></Link>
+                        <Link to="/login"><Button className="cursor-pointer lg:w-full">Login</Button></Link>
                     </div>
                 </div>
             </div>
             
-            <div className="xl:hidden bg-white px-8 py-3 rounded-lg">
+            <div className="xl:hidden  px-8 py-3 rounded-lg">
                 <div className="p-2 bg-(--primary) rounded-[5px]">
                     <DropdownMenu>
                         <DropdownMenuTrigger className="text-white">Menu</DropdownMenuTrigger>
@@ -57,7 +57,8 @@ export default function Header() {
                             <DropdownMenuSeparator />
                             <div className="flex flex-col gap-2">
                                 <Button variant="outline" className="cursor-pointer">Contact</Button>
-                                <Link to="/Login"><Button className="cursor-pointer w-full">Login</Button></Link>
+                                <Link to="/supplier"><Button variant="outline" className="cursor-pointer w-full">Become our Partner</Button></Link>
+                                <Link to="/login"><Button className="cursor-pointer w-full">Login</Button></Link>
                             </div>
                         </DropdownMenuContent>
                     </DropdownMenu>

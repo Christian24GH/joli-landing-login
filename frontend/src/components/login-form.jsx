@@ -9,12 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field"
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useForm } from 'react-hook-form'
 import AuthContext from "../context/AuthProvider"
 import { useContext } from "react"
-
+import { Link } from "react-router"
 
 export function LoginForm({
   className,
@@ -76,6 +83,11 @@ export function LoginForm({
                   Login
                 </Button>
               </div>
+              <FieldGroup>
+                <FieldDescription className="text-center text-lg">
+                  Don&apos;t have an account? <Link to="/register">Sign up</Link>
+                </FieldDescription>
+              </FieldGroup>
             </div>
           </form>
         </CardContent>

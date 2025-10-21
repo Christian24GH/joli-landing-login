@@ -16,6 +16,10 @@ export const requestOtp = async (email, password) => {
   return AUTH_API.post("/api/login", { email, password });
 };
 
+export const register = async (credentails) => {
+  return AUTH_API.post("/api/register-customer", { credentails });
+};
+
 export const verifyOtp = async (email, otp) => {
   return AUTH_API.post("/api/otp/verify", { email, otp });
 };

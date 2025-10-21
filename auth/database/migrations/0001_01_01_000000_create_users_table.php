@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('last_verified_agent')->nullable();
             $table->string('password');
             $table->enum('role', [
+                'Customer',
                 'HR1 Admin',
                 'HR2 Admin', 'Trainer', 'Employee',
                 'HR3 Admin',
@@ -29,7 +30,8 @@ return new class extends Migration
                 'Payroll Specialist',
                 'LogisticsI Admin', 'Manager', 'Staff',
                 'Fleet Manager', 'Driver',
-                'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin'
+                'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin',
+                'Booking Admin', 'Booking Staff', 'CT1 Admin',
             ])->default('Employee');
             $table->rememberToken();
             $table->timestamps();

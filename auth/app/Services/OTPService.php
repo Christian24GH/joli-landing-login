@@ -19,7 +19,7 @@ class OTPService
     {
         $otpCode = random_int(100000, 999999);
         $otpHash = Hash::make($otpCode);
-        $expiresAt = Carbon::now()->addMinutes(5);
+        $expiresAt = Carbon::now()->addMinutes(1);
 
         $otp = Otp::create([
             'user_id'    => $userId,

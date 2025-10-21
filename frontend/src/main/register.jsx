@@ -11,7 +11,7 @@ import bg from '@/assets/ironpattern.png'
 import logo from '@/assets/finallogo.avif'
 import { OTPForm } from "../components/otp-form";
 import TermsAndConditions from '../components/term-conditions'
-export default function LoginPage(){
+export default function Register(){
         
         const navigate = useNavigate()
         const { pendingOtp, loading: authLoading, auth, roleAccess } = useContext(AuthContext);
@@ -63,7 +63,7 @@ export default function LoginPage(){
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md scale-120"
+                        className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md"
                     >
                         <OTPForm />
                     </motion.div>                   

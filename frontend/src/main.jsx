@@ -7,10 +7,10 @@ import { AuthProvider } from './context/AuthProvider.jsx';
 import { ThemeProvider } from "./context/theme-provider"
 import LandingPage from './main/landing'
 import BookingPage from './main/booking.jsx';
-import LoginPage from './main/login';
+import LoginPage from './main/login.jsx';
+import RegisterPage from './main/register.jsx';
 import Supplier from './main/Supplier';
 import NotFound from './main/not-found';
-import Supplier from './main/Supplier';
 
 createRoot(document.getElementById('root')).render(
   // basename = baseUrl jsut like base value inside vite.config.js
@@ -25,6 +25,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/booking" element={<BookingPage/>}/>
           <Route path="/login" index element={<LoginPage/>}/>
+          <Route path="/register" index element={<RegisterPage/>}/>
           <Route path="/supplier" element={<Supplier/>}/>
           {/**NOT FOUND PAGE AS LAST CHILD OF ROUTES */}
           <Route path='*' element={<NotFound/>}/>
