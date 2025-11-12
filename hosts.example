@@ -1,0 +1,34 @@
+
+# Travel and Tours
+127.0.0.1 auth.jolitravel.local
+127.0.0.1 landing.jolitravel.local
+
+127.0.0.1 front.jobfithr1.jolitravel.local
+127.0.0.1 back.jobfithr1.jolitravel.local
+
+127.0.0.1 front.tchr2.jolitravel.local
+127.0.0.1 back.tchr2.jolitravel.local
+
+127.0.0.1 front.hr3workforceops.jolitravel.local
+127.0.0.1 back.hr3workforceops.jolitravel.local
+
+127.0.0.1 front.hr4armai.jolitravel.local
+127.0.0.1 back.hr4armai.jolitravel.local
+
+127.0.0.1 front.bookingTOCBS.jolitravel.local
+127.0.0.1 back.bookingTOCBS.jolitravel.local
+
+127.0.0.1 front.Travagent.jolitravel.local
+127.0.0.1 back.Travagent.jolitravel.local
+
+127.0.0.1 front.qrlog1.jolitravel.local
+127.0.0.1 back.qrlog1.jolitravel.local
+
+127.0.0.1 front.fleet.jolitravel.local
+127.0.0.1 back.fleet.jolitravel.local
+
+127.0.0.1 front.superadministrative.jolitravel.local
+127.0.0.1 back.superadministrative.jolitravel.local
+
+127.0.0.1 front.TechFince.jolitravel.local
+127.0.0.1 back.TechFince.jolitravel.local

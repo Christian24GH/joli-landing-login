@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('otp_verified_at')->nullable();
+            $table->string('last_verified_ip', 45)->nullable();
+            $table->text('last_verified_agent')->nullable();
             $table->string('password');
             $table->enum('role', [
+                'Customer',
                 'HR1 Admin',
                 'HR2 Admin', 'Trainer', 'Employee',
                 'HR3 Admin',
@@ -26,7 +30,8 @@ return new class extends Migration
                 'Payroll Specialist',
                 'LogisticsI Admin', 'Manager', 'Staff',
                 'Fleet Manager', 'Driver',
-                'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin'
+                'Facility Admin', 'Legal Admin', 'Front Desk Admin', 'Super Admin',
+                'Booking Admin', 'Booking Staff', 'CT1 Admin',
             ])->default('Employee');
             $table->rememberToken();
             $table->timestamps();

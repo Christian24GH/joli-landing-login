@@ -25,6 +25,9 @@ class User extends Authenticatable
         'password',
         'role',
         'uuid',
+        'otp_verified_at',
+        'last_verified_ip',
+        'last_verified_agent'
     ];
 
     /**
@@ -45,7 +48,8 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'password' => 'hashed'
+            'password' => 'hashed',
+            'otp_verified_at' => 'datetime',
         ];
     }
 }

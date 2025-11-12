@@ -1,0 +1,100 @@
+
+<VirtualHost *:80>
+    ServerName auth.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/landing+login/auth/public"
+
+    <Directory "C:/xampp/htdocs/TravelAndTours/landing+login/auth/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.jobfithr1.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/human_resource_1/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/human_resource_1/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.tchr2.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/human_resource_2/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/human_resource_2/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.hr3workforceops.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/human_resource_3/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/human_resource_3/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.hr4armai.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/human_resource_4/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/human_resource_4/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.bookingTOCBS.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/core_transaction_1/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/core_transaction_1/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.Travagent.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/core_transaction_2/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/core_transaction_2/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.qrlog1.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/logisticsI/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/logisticsI/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.fleet.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/logisticsII/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/logisticsII/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.superadministrative.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/administrative/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/administrative/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName back.TechFince.jolitravel.local
+    DocumentRoot "C:/xampp/htdocs/TravelAndTours/financial/backend/public"
+    <Directory "C:/xampp/htdocs/TravelAndTours/financial/backend/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
